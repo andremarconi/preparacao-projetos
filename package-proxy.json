@@ -1,0 +1,15 @@
+{
+  "name": "nome-do-projeto",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all --parallel sync sass",
+    "sync": "browser-sync start --proxy 'NOME-DO-ENDERECO' -w --files 'css/*.css' '*.php'",
+    "sass": "sass --watch sass/source.scss css/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
