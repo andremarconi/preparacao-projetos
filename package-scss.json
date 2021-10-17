@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel sync sass",
     "sync": "browser-sync start -sw --files 'css/*.css'",
-    "sass": "sass --watch sass/source.scss css/main.css",
+    "sass": "sass --watch scss/source.scss css/main.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
