@@ -2,9 +2,11 @@
 
 echo "Criando estrutura do projeto de desenvolvimento."
 
-echo "Clonando o repositório com os arquivos do projeto"
-git clone https://github.com/andremarconi/preparacao-projetos.git
-echo "Repositório clonado."
+# echo "Clonando o repositório com os arquivos do projeto"
+# git clone https://github.com/andremarconi/preparacao-projetos.git
+# echo "Repositório clonado."
+# echo "Entrando no diretório."
+# cd preparacao-projetos
 
 echo "Removendo o diretório .git."
 rm -rf .git
@@ -14,12 +16,12 @@ read -p "Qual projeto você vai instalar: [W]ebpack ou [S]CSS Sync? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Ww]$ ]]
   then
-    
+
     echo "Criando os diretórios e arquivos para o Webpack."
     mkdir -p app/assets/{images,styles/{base,modules},scripts}
     touch app/assets/styles/styles.scss
     echo "Diretórios app/assets/{images,styles/{base,modules},scripts e arquivos criados."
-    
+
     echo "Movendo arquivo app.js para o diretório scripts e index.html para o
     diretório app."
     mv app.js app/assets/scripts/app.js
@@ -47,7 +49,7 @@ if [[ $REPLY =~ ^[Ww]$ ]]
     exit 0
 
   else
-      
+
     if [[ ! $REPLY =~ ^[Ss]$ ]]
       then
         [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
@@ -56,7 +58,7 @@ if [[ $REPLY =~ ^[Ww]$ ]]
 fi
 
 echo "Criando os diretórios para o SyncBrowser e SCSS."
-mkdir -p scss{base,modules},css,js,images
+mkdir -p {css,js,images,scss/{base,modules}}
 echo "Diretório scss{base,modules},css,js,images criados."
 
 echo "Criando os arquivos."
@@ -102,4 +104,3 @@ fi
 
 
 #END
-
