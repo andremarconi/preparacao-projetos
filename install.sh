@@ -23,22 +23,18 @@ if [[ $REPLY =~ ^[Ww]$ ]]
   then
 
     echo "Criando os diretórios e arquivos para o Webpack."
-    mkdir -p app/assets/{images,styles/{base,modules},scripts}
-    touch app/assets/styles/styles.scss
-    mv $DIR_REPO/app.js app/assets/scripts/app.js
-    mv $DIR_REPO/index-webpack.html app/index.html
+    mkdir -p src/assets/{images,styles/{base,modules},scripts}
+    touch src/assets/styles/styles.scss
+    mv $DIR_REPO/app.js src/assets/scripts/app.js
+    mv $DIR_REPO/index-webpack.html src/index.html
     mv $DIR_REPO/package-webpack.json package.json
     mv $DIR_REPO/webpack.config.js webpack.config.js
     echo "Arquivos criados."
 
     echo "Instalando pacotes npm."
-    npm install webpack webpack-cli webpack-dev-server css-loader sass sass-loader style-loader --save-dev
+    npm install webpack webpack-cli webpack-dev-server fs-extra babel-loader @babel/core @babel/preset-env css-loader sass sass-loader style-loader html-webpack-plugin mini-css-extract-plugin css-minimizer-webpack-plugin --save-dev
     npm install normalize.css
     echo "Pacotes instalados."
-
-    echo "Building the project."
-    npm run build
-    echo "Projeto inicial construído."
 
     echo "Removendo diretório $DIR_REPO"
     rm -rf $DIR_REPO
